@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.uva.sne.drip.provisioner;
+package nl.uva.qcdis.sdia.provisioner;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,10 +14,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import nl.uva.sne.drip.model.cloud.storm.CloudDB;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormVM;
-import nl.uva.sne.drip.model.cloud.storm.DB;
-import nl.uva.sne.drip.model.cloud.storm.DBInfo;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudDB;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormVM;
+import nl.uva.qcdis.sdia.model.cloud.storm.DB;
+import nl.uva.qcdis.sdia.model.cloud.storm.DBInfo;
 
 /**
  *
@@ -50,9 +50,9 @@ class CloudStormDAO {
         if (targetCloudDB != null) {
 
             List<CloudsStormVM> vMMetaInfos = new ArrayList<>();
-            DBInfo dbInfo = objectMapper.readValue(new File(cloudStormDBPath + File.separator + targetCloudDB.getDbInfoFile()), nl.uva.sne.drip.model.cloud.storm.DBInfo.class);
-            List< nl.uva.sne.drip.model.cloud.storm.CloudStormDCMetaInfo> metaInfos = dbInfo.getDcMetaInfo();
-            for ( nl.uva.sne.drip.model.cloud.storm.CloudStormDCMetaInfo metaInfo : metaInfos) {
+            DBInfo dbInfo = objectMapper.readValue(new File(cloudStormDBPath + File.separator + targetCloudDB.getDbInfoFile()), nl.uva.qcdis.sdia.model.cloud.storm.DBInfo.class);
+            List< nl.uva.qcdis.sdia.model.cloud.storm.CloudStormDCMetaInfo> metaInfos = dbInfo.getDcMetaInfo();
+            for ( nl.uva.qcdis.sdia.model.cloud.storm.CloudStormDCMetaInfo metaInfo : metaInfos) {
                 vMMetaInfos.addAll(metaInfo.getVmMetaInfo());
             }
             return vMMetaInfos;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nl.uva.sne.drip.provisioner;
+package nl.uva.qcdis.sdia.provisioner;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,8 +30,8 @@ import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import nl.uva.sne.drip.model.Message;
-import nl.uva.sne.drip.model.tosca.ToscaTemplate;
+import nl.uva.qcdis.sdia.model.Message;
+import nl.uva.qcdis.sdia.model.tosca.ToscaTemplate;
 
 /**
  *

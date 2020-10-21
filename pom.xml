@@ -2,25 +2,36 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>nl.uva.sne.drip</groupId>
-        <artifactId>conf</artifactId>
-        <version>3.0.0</version>
-    </parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+    </parent>  
     
-    <groupId>nl.uva.sne.drip</groupId>
-    <version>3.0.0</version>
+    <groupId>nl.uva.qcdis.sdia</groupId>
+    <version>1.0.0</version>
     <artifactId>provisioner</artifactId>
     
     <packaging>jar</packaging>
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <docker.image.prefix>qcdis</docker.image.prefix>
     </properties>
     
     
     
     <dependencies>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+        </dependency>
+        
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.rabbitmq</groupId>
@@ -29,12 +40,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>nl.uva.sne.drip</groupId>
-            <artifactId>commons</artifactId>
-            <version>3.0.0</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -77,6 +82,12 @@
             <version>3.1.0</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>nl.uva.qcdis.sdia</groupId>
+            <artifactId>sdia-commons</artifactId>
+            <version>1.0.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     
     
@@ -91,7 +102,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>nl.uva.sne.drip.provisioner.RPCServer</mainClass>
+                            <mainClass>nl.uva.qcdis.sdia.provisioner.RPCServer</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -126,6 +137,15 @@
     
     
     <repositories>
+            
+      
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>releases</id>
+            <url>https://raw.githubusercontent.com/skoulouzis/mvn-repo/master/releases</url>
+        </repository>
         <repository>
             <snapshots>
                 <enabled>false</enabled>
@@ -137,7 +157,7 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <id>releases</id>
+            <id>releases1</id>
             <url>https://raw.githubusercontent.com/skoulouzis/mvn-repo/master/releases</url>
         </repository>        
     </repositories>

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nl.uva.sne.drip.provisioner;
+package nl.uva.qcdis.sdia.provisioner;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -68,7 +68,7 @@ public class RPCServer {
             //We define the queue name 
             channel.queueDeclare(getProp().getProperty("message.broker.queue.provisioner", "provisioner"), false, false, false, null);
             DefaultConsumer c;
-            c = new nl.uva.sne.drip.provisioner.Consumer(channel, getProp());
+            c = new nl.uva.qcdis.sdia.provisioner.Consumer(channel, getProp());
 
             //Start listening for messages 
             channel.basicConsume(getProp().getProperty("message.broker.queue.provisioner", "provisioner"), false, c);
