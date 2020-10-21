@@ -1,8 +1,8 @@
 FROM openjdk:11
-COPY target/provisioner-3.0.0-jar-with-dependencies.jar provisioner-3.0.0-jar-with-dependencies.jar
+COPY target/provisioner-1.0.0-jar-with-dependencies.jar provisioner-jar-with-dependencies.jar
 COPY etc/ etc
 
-CMD jar -xf provisioner-3.0.0-jar-with-dependencies.jar application.properties && \
+CMD jar -xf provisioner-jar-with-dependencies.jar application.properties && \
     echo "----------------------------" && \
     cat application.properties && \
     sed -ie "s#^message.broker.host=.*#message.broker.host=$RABBITMQ_HOST#" application.properties && \ 
@@ -14,8 +14,8 @@ CMD jar -xf provisioner-3.0.0-jar-with-dependencies.jar application.properties &
     echo "cloud.storm.db.path=/etc/UD" >> application.properties && \
     cat application.properties && \
     echo "----------------------------" && \
-    jar -uf provisioner-3.0.0-jar-with-dependencies.jar application.properties && \
+    jar -uf provisioner-jar-with-dependencies.jar application.properties && \
     sleep 5 && \
-    java -jar provisioner-3.0.0-jar-with-dependencies.jar
+    java -jar provisioner-jar-with-dependencies.jar
 
     
