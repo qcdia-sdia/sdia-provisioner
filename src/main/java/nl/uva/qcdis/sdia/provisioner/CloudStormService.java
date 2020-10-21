@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.uva.sne.drip.provisioner;
+package nl.uva.qcdis.sdia.provisioner;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,27 +35,27 @@ import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import nl.uva.sne.drip.commons.utils.Constants;
-import static nl.uva.sne.drip.commons.utils.Constants.*;
-import nl.uva.sne.drip.commons.utils.Converter;
-import nl.uva.sne.drip.commons.utils.ToscaHelper;
-import static nl.uva.sne.drip.commons.utils.ToscaHelper.cloudStormStatus2NodeState;
-import nl.uva.sne.drip.model.Exceptions.TypeExeption;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormVM;
-import nl.uva.sne.drip.model.NodeTemplateMap;
-import nl.uva.sne.drip.model.cloud.storm.CloudCred;
-import nl.uva.sne.drip.model.cloud.storm.CloudCredentialDB;
-import nl.uva.sne.drip.model.cloud.storm.CloudDB.CloudProviderEnum;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormInfrasCode;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormSubTopology;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormTopTopology;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormVMs;
-import nl.uva.sne.drip.model.cloud.storm.CredentialInfo;
-import nl.uva.sne.drip.model.cloud.storm.InfrasCode;
-import nl.uva.sne.drip.model.cloud.storm.OpCode;
-import nl.uva.sne.drip.model.tosca.Credential;
-import nl.uva.sne.drip.model.tosca.ToscaTemplate;
-import nl.uva.sne.drip.sure.tosca.client.ApiException;
+import nl.uva.qcdis.sdia.commons.utils.Constants;
+import static nl.uva.qcdis.sdia.commons.utils.Constants.*;
+import nl.uva.qcdis.sdia.commons.utils.Converter;
+import nl.uva.qcdis.sdia.commons.utils.ToscaHelper;
+import static nl.uva.qcdis.sdia.commons.utils.ToscaHelper.cloudStormStatus2NodeState;
+import nl.uva.qcdis.sdia.model.Exceptions.TypeExeption;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormVM;
+import nl.uva.qcdis.sdia.model.NodeTemplateMap;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudCred;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudCredentialDB;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudDB.CloudProviderEnum;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormInfrasCode;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormSubTopology;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormTopTopology;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormVMs;
+import nl.uva.qcdis.sdia.model.cloud.storm.CredentialInfo;
+import nl.uva.qcdis.sdia.model.cloud.storm.InfrasCode;
+import nl.uva.qcdis.sdia.model.cloud.storm.OpCode;
+import nl.uva.qcdis.sdia.model.tosca.Credential;
+import nl.uva.qcdis.sdia.model.tosca.ToscaTemplate;
+import nl.uva.qcdis.sdia.sure.tosca.client.ApiException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.math3.ml.distance.EuclideanDistance;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.uva.sne.drip.provisioner;
+package nl.uva.qcdis.sdia.provisioner;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -20,24 +20,24 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
-import static nl.uva.sne.drip.commons.utils.Constants.*;
-import nl.uva.sne.drip.commons.utils.Converter;
-import nl.uva.sne.drip.commons.utils.ToscaHelper;
-import nl.uva.sne.drip.model.Message;
-import nl.uva.sne.drip.model.NodeTemplateMap;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormInfrasCode;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormSubTopology;
-import nl.uva.sne.drip.model.cloud.storm.CloudsStormTopTopology;
-import nl.uva.sne.drip.model.cloud.storm.InfrasCode;
-import nl.uva.sne.drip.model.cloud.storm.OpCode;
-import static nl.uva.sne.drip.provisioner.CloudStormService.APP_FOLDER_NAME;
-import static nl.uva.sne.drip.provisioner.CloudStormService.INFRASTUCTURE_CODE_FILE_NAME;
-import static nl.uva.sne.drip.provisioner.CloudStormService.INFS_FOLDER_NAME;
-import static nl.uva.sne.drip.provisioner.CloudStormService.TOPOLOGY_RELATIVE_PATH;
-import static nl.uva.sne.drip.provisioner.CloudStormService.TOP_TOPOLOGY_FILE_NAME;
-import static nl.uva.sne.drip.provisioner.CloudStormService.UC_FOLDER_NAME;
-import static nl.uva.sne.drip.provisioner.CloudStormService.UD_FOLDER_NAME;
-import nl.uva.sne.drip.sure.tosca.client.ApiException;
+import static nl.uva.qcdis.sdia.commons.utils.Constants.*;
+import nl.uva.qcdis.sdia.commons.utils.Converter;
+import nl.uva.qcdis.sdia.commons.utils.ToscaHelper;
+import nl.uva.qcdis.sdia.model.Message;
+import nl.uva.qcdis.sdia.model.NodeTemplateMap;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormInfrasCode;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormSubTopology;
+import nl.uva.qcdis.sdia.model.cloud.storm.CloudsStormTopTopology;
+import nl.uva.qcdis.sdia.model.cloud.storm.InfrasCode;
+import nl.uva.qcdis.sdia.model.cloud.storm.OpCode;
+import static nl.uva.qcdis.sdia.provisioner.CloudStormService.APP_FOLDER_NAME;
+import static nl.uva.qcdis.sdia.provisioner.CloudStormService.INFRASTUCTURE_CODE_FILE_NAME;
+import static nl.uva.qcdis.sdia.provisioner.CloudStormService.INFS_FOLDER_NAME;
+import static nl.uva.qcdis.sdia.provisioner.CloudStormService.TOPOLOGY_RELATIVE_PATH;
+import static nl.uva.qcdis.sdia.provisioner.CloudStormService.TOP_TOPOLOGY_FILE_NAME;
+import static nl.uva.qcdis.sdia.provisioner.CloudStormService.UC_FOLDER_NAME;
+import static nl.uva.qcdis.sdia.provisioner.CloudStormService.UD_FOLDER_NAME;
+import nl.uva.qcdis.sdia.sure.tosca.client.ApiException;
 import org.apache.commons.io.FilenameUtils;
 import org.junit.After;
 import org.junit.AfterClass;
