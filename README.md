@@ -1,4 +1,5 @@
 ![Java CI](https://github.com/qcdis-sdia/sdia-provisioner/workflows/Java%20CI/badge.svg)
+![Docker](https://github.com/qcdis-sdia/sdia-provisioner/workflows/Docker/badge.svg)
 # sdia-provisioner
 Infrastructure Provisioner 
 This is a Cloud infrastructure API integrator. 
