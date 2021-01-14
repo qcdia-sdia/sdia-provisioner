@@ -8,7 +8,7 @@
     </parent>  
     
     <groupId>nl.uva.qcdis.sdia</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <artifactId>provisioner</artifactId>
     
     <packaging>jar</packaging>
@@ -85,8 +85,7 @@
         <dependency>
             <groupId>nl.uva.qcdis.sdia</groupId>
             <artifactId>sdia-commons</artifactId>
-            <version>1.0.0</version>
-            <type>jar</type>
+            <version>1.0.10</version>
         </dependency>
     </dependencies>
     
@@ -162,4 +161,9 @@
         </repository>        
     </repositories>
     <name>provisioner</name>
+    
+    
+    
+
+        
 </project>
