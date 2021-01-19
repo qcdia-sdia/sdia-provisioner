@@ -1,5 +1,5 @@
 FROM openjdk:11
-COPY target/provisioner-1.0.0-jar-with-dependencies.jar provisioner-jar-with-dependencies.jar
+COPY ./target/provisioner-1.0.0-jar-with-dependencies.jar provisioner-jar-with-dependencies.jar
 COPY etc/ etc
 
 CMD jar -xf provisioner-jar-with-dependencies.jar application.properties && \
