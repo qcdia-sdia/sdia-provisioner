@@ -250,7 +250,9 @@ class CloudStormService {
     protected CloudsStormVM getBestMatchingCloudStormVM(NodeTemplateMap vmMap, String provider) throws IOException, Exception {
         Double requestedNumOfCores = getHelper().getVMNumOfCores(vmMap);
         Double requestedMemSize = getHelper().getVMNMemSize(vmMap);
-        String requestedOs = getHelper().getVMNOS(vmMap);
+        String requestedOsDist = getHelper().getVMNOSDistro(vmMap);
+        String requestedOsVersion = getHelper().getVMNOSVersion(vmMap);
+        String requestedOs = requestedOsDist+" "+requestedOsVersion;
         Double requestedDiskSize = getHelper().getVMNDiskSize(vmMap);
         double[] requestedVector = convert2ArrayofDoubles(requestedNumOfCores, requestedMemSize, requestedDiskSize);
         double min = Double.MAX_VALUE;
@@ -300,17 +302,20 @@ class CloudStormService {
         List<CloudCred> cloudStormCredentialList = new ArrayList<>();
         int i = 0;
         for (NodeTemplateMap vmTopologyMap : vmTopologiesMaps) {
-            Credential toscaCredentials = getHelper().getCredentialsFromVMTopology(vmTopologyMap);
-            toscaCredentials = Converter.dencryptCredential(toscaCredentials, credentialSecret);
-            CloudCred cloudStormCredential = new CloudCred();
-            cloudStormCredential.setCloudProvider(toscaCredentials.getCloudProviderName());
-            String credInfoFile = toscaCredentials.getCloudProviderName() + i + ".yml";
-            cloudStormCredential.setCredInfoFile(credInfoFile);
-            cloudStormCredentialList.add(cloudStormCredential);
+            List<Credential> toscaCredentials = getHelper().getCredentialsFromVMTopology(vmTopologyMap);
+            
+            for (Credential toscaCredential : toscaCredentials) {
+                toscaCredential = Converter.dencryptCredential(toscaCredential, credentialSecret);
+                CloudCred cloudStormCredential = new CloudCred();
+                cloudStormCredential.setCloudProvider(toscaCredential.getCloudProviderName());
+                String credInfoFile = toscaCredential.getCloudProviderName() + i + ".yml";
+                cloudStormCredential.setCredInfoFile(credInfoFile);
+                cloudStormCredentialList.add(cloudStormCredential);
+                CredentialInfo cloudStormCredentialInfo = getCloudStormCredentialInfo(toscaCredential, credentialsTempInputDirPath);
+                objectMapper.writeValue(new File(credentialsTempInputDirPath + File.separator + toscaCredential.getCloudProviderName() + i + ".yml"), cloudStormCredentialInfo);
+                i++;
+            }
 
-            CredentialInfo cloudStormCredentialInfo = getCloudStormCredentialInfo(toscaCredentials, credentialsTempInputDirPath);
-            objectMapper.writeValue(new File(credentialsTempInputDirPath + File.separator + toscaCredentials.getCloudProviderName() + i + ".yml"), cloudStormCredentialInfo);
-            i++;
         }
         CloudCredentialDB cloudStormCredentials = new CloudCredentialDB();
         cloudStormCredentials.setCloudCreds(cloudStormCredentialList);
