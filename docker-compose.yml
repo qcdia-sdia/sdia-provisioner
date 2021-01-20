@@ -1,0 +1,9 @@
+version: '3'
+services:
+
+
+  sure-tosca:
+    image: qcdis/sure-tosca
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
