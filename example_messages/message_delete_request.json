@@ -1,0 +1,226 @@
+{
+  "owner": "user",
+  "creationDate": 1611153244810,
+  "toscaTemplate": {
+    "tosca_definitions_version": "tosca_simple_yaml_1_0",
+    "topology_template": {
+      "node_templates": {
+        "compute": {
+          "properties": {
+            "disk_size": "40000 MB",
+            "mem_size": "4000 MB",
+            "num_cores": 2,
+            "os_distro": "Ubuntu",
+            "os_version": "18.04",
+            "user_name": "vm_user"
+          },
+          "interfaces": {
+            "Standard": {
+              "create": "dumy.yaml"
+            }
+          },
+          "type": "tosca.nodes.QC.VM.Compute",
+          "attributes": {
+            "user_key_pair": {
+              "protocol": "ssh",
+              "keys": {
+                "public_key": "c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFBZ1FDOVRpSm1OdWdKOHBYNk9kWDVBcDgwTlpzb2hUN0c2SUtFVnU2WkhQUjZEeFpyeXM1b0FkOUJsdElLUUF2b2loQldmYWNxNTFndjluLzB6dFZsMzNLNlR1L1lFV2ZwNE9WeWNKWTMrUVhxM2c1RjJxTkpGZ1dhbkpSMnoyZ3ZOeVdkZTBuYlkrck9TU2M2TVo2dVNWc010eHJ2S2VzdENlSzZJSHJpenlkU293PT0gZ2VuZXJhdGVkIHVzZXIgYWNjZWVzIGtleXMK",
+                "private_key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlDWFFJQkFBS0JnUUM5VGlKbU51Z0o4cFg2T2RYNUFwODBOWnNvaFQ3RzZJS0VWdTZaSFBSNkR4WnJ5czVvCkFkOUJsdElLUUF2b2loQldmYWNxNTFndjluLzB6dFZsMzNLNlR1L1lFV2ZwNE9WeWNKWTMrUVhxM2c1RjJxTkoKRmdXYW5KUjJ6Mmd2TnlXZGUwbmJZK3JPU1NjNk1aNnVTVnNNdHhydktlc3RDZUs2SUhyaXp5ZFNvd0lEQVFBQgpBb0dBWkZPOW5XaHFENk9XWXJnMk03TjFCcW1HWXJKRGRBMlQ1bWxnS0p1VTRmK1BCVy9GZG8vUGI2WnNDT3lxCm93SlE2RlhOdThwQ0RhRlpiVGdWRnRtV3BrZUFIRW5vSmFCb25HL0x5M2ZLVDR4d1o1MnBRYnF1SndZNTd5OVAKTldDOEdWU3Y2aCs5Rjd2ai83aDRqRHlMS0U4VGhYNG9QZnM2QkZRdXF6dG4vcEVDUVFEZ0tXdXNnTnpGS1ViTgo0aGk3M2tBSUFEM3dVZ25kRGdDUTc1bnZ2SFFPRUFtUzJjdzBEaVUxalhSTVgvc25uQWUvWHVrTi9WNm14OFVXCkhFb3UyelpKQWtFQTJERlJ5emxpSGFDa2lkZFdIWXRoWjlSQ3JDdVBCQ0xnVGtmMk9mcVRaYUVvK0lTMG5RQysKTlR2Nmo4dnRvMlhmeUNFc0xoOE9FSjFTblhTWisxWVJpd0pCQUx0RS8yWlRGWjFGZVppQTNnYjlpdUxrU05xZgp2d3ZGS2VYcnRkL1p3ZDhKdU9YTlBOTDBTbE91QkUzV0ZiMm1sYlpqOVRHeHpjUnB1cFpaTmdSbE1Ma0NRQ0l2CmNrcWJVVXQwQ25DTmIxMk9tNkZxYS95RGlzTFJyUHhUM3JoK1NlNXBGR3h2dDR1WUFYdXpkMFJqcjdrRnMrUVcKY3NEOFFpSVlibWJkZURmSS9VOENRUUNDc1N5Q1Fzd3ZFbE9WV0YzREM4N3prakFJdDJMU0t3ajRhM0pGVWNkSApEQ1VmaWxKaVZIM2d3UURKdVFJM0dPNDJCb1QyWThKK0gxSlg0TFIrM0FIcwotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo="
+              }
+            },
+            "public_ip": "52.214.128.118",
+            "role": "master",
+            "node_type": "t2.medium",
+            "root_key_pair": {
+              "protocol": "ssh",
+              "keys": {
+                "public_key": "cHVibGljS2V5LTkwZWY4OGM5LTM4MzYtNGI3Yi1iZmIwLWE4OGM0MmQ5YjA5ZQ==",
+                "private_key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMHBob212bExheldBQ3l4aFphR2xqM0ZiYTh6S25udk1LRSswQ1F5WmN2Q2h6QzdNCkRPK01HUEdYTE5ZQkpUL0VmM1k5RE50U3pFcTJaOXR4ZzQwSEp1cGxiZU9scHNKaVRaRkhnUm41WTdTbWNXeEMKcGhNWHNpNW1hak5iUUFpaG9JV0piK1RjdXdWWjJ4RmJXZkp5MXo0ZnFiekRIVUpZOGdiOFYxOFpvajNEUzZ3TwpzLzMrWjdXZ2FRRWErSnJmd3ZrVzhKSDlxanhpM2ZOWGkrV3hyK0ltaVF1N1Voa3J4elAwVE9yTjh2Uis5OHVuCmd2UnRKd0ttTnpFVTdIcmNPMVJoQXZkcDdDaDY4alI2RU5YYWdOVGhaK0FJRXNhT3lza1hZcHVrbE5Sa3dUVkwKT3dhRVAwOUhucFhTdFY5TmUvaDg0ZnhMY0lxNFZseUFuTDVjT1FJREFRQUJBb0lCQVFDQXYxQmtQamhQYUx2SgpHTzdLZFZLRUtXY2N0bXpCQ3lvN0VzOGNJU25HelRuOVhEYS9TY3U2akNoQjd1dHdYRlhESHdRZjBnNENlMEtjCnA5bno5TW9FanBSSDVENm5mbnNldE15a0xyNzZwN3lCNXcrdi9FZ21WSnVrSFpXUnhqVVpyOG5nTUdpSnBiSFQKYmY4Tk5GM2xIVU82UDM2QmFzaDUzcTl5c3Q4M0FiTnhCdW5xZUc3bXF3a2hCVkN5SUkrYVUzRlJwZFBIdzEyZQo2V2FYNjdhcUpvWk0zT3pvcUVLOTdZZ2dzOTB3L0VNeWpkYTg4RTdnN3B5SXpZMEJCcjBSeTNPdUYzWUwrL1NuCjgrMkVlYzVMYXlMOSttVlRST0ZDSUx4WTVUWG0rVGFQYkRCS1VCOUFRZHZvOGQwU3BTcDN2bllpNm5Vazc0RDAKdjN0dzlEdkpBb0dCQU9zRUh2UEx4cGJxTEFXZ3dmTGxlemU1YjVUa1BtUjJXbW1wRUlIWUN0NHpDUmEwUXlrVgpjNU9nYWJHMWRqSUtSOHBFaDN4RzNsU0pWRVdmSm81WFFnekUyUndHZWpzaC8yRW5Dc2pyTWI0L3NkZ0luRHFaCnNqT29NK0d5YjJBOThEUVduQ1lQNVRESW9idHI4VWZRWVZDUFZiaElEV3V3OWRjeEVaQ0hUVDdyQW9HQkFPVm0KRnl6ZGl6WmZ2TXhaN0dvMWlzSVp2elVQbmI3UVNnL0kvL3lVa2U1enVwdFhyczkybmdoMjFlQTBpL2cwbjRyYgpYQ0pGajhQdlYzaXBESjlvbk1RMnhub01HUGc2TGpWT3BER3N2bnNySEJISlM2QzE1K1VRY3htSjRKa1AvS0JaCm5RdHFieTJQRkJ3eXdsc01CN3N2RGY4aCtVQUhVWGl0S3dwYXV6QnJBb0dBR1FxRVhjZTlya0RmVmU0dUhEcDEKYVplWm13ekMxU09ET0xUcDdGdmZ0Sk5OaVp6RmR6QXc4MjdwTkNVNHBkWlFsZTI5WGZHVEtRREUrUElmUXBWcgpsVDY0UDNNMVBPMi9iMU9nbzQzajYvaVBjNHhmVVNNbFNMbklaV2tFMHdWbWZiWlhCdnMwbVlFWE1vZ3EybE1LCnUzRzZXWHRiNnJpZFNVT1NNb3NvSU9jQ2dZQmlYbWZidGxqSEJVREpoRm9McFZBT01jbzdiNm5lTkNVK0pad1gKN0lHemRlNzBSQ0pURm5Obi84Vnc4amQvUk5tUlNzVjBjTTNZWUY3cS85ckkxS3c4dTV4YW82dGxibFY0U0hQQwpWV2dOR3d4YldDMVZDZ3dadnZjTVlZSnRRRnk5U2hBODMvUXkzaUxxZ0oyMU96QnBoU0VFWWNZblBid2krbWIxCmRyakVad0tCZ1FDL01GVjRUZmV5aU9UVk40T1grK0FBK2hTSkRKOHJNRXVCaTdXR21uUFpYSi9CYlZhR0N4VWQKOEp4RUVjeEZmSXcxRUduL2VpUStoMVc4elB4UHkrdm9yVWVOS0JLZis4UkhBcU4xejh6YldHR2JvNVlYaE82OApvbk9FYUdSTDdYT0pWcXV4YWYwN1VjZHZ0UTBMV1A5TWsra21ITGk5VTh3VWdWKzlwUDhCTkE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQ=="
+              }
+            },
+            "host_name": "vm0"
+          }
+        },
+        "compute_1": {
+          "properties": {
+            "disk_size": "40000 MB",
+            "mem_size": "4000 MB",
+            "num_cores": 2,
+            "os_distro": "Ubuntu",
+            "os_version": "18.04",
+            "user_name": "vm_user"
+          },
+          "interfaces": {
+            "Standard": {
+              "create": "dumy.yaml"
+            }
+          },
+          "type": "tosca.nodes.QC.VM.Compute",
+          "attributes": {
+            "user_key_pair": {
+              "protocol": "ssh",
+              "keys": {
+                "public_key": "c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFBZ1FDOVRpSm1OdWdKOHBYNk9kWDVBcDgwTlpzb2hUN0c2SUtFVnU2WkhQUjZEeFpyeXM1b0FkOUJsdElLUUF2b2loQldmYWNxNTFndjluLzB6dFZsMzNLNlR1L1lFV2ZwNE9WeWNKWTMrUVhxM2c1RjJxTkpGZ1dhbkpSMnoyZ3ZOeVdkZTBuYlkrck9TU2M2TVo2dVNWc010eHJ2S2VzdENlSzZJSHJpenlkU293PT0gZ2VuZXJhdGVkIHVzZXIgYWNjZWVzIGtleXMK",
+                "private_key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlDWFFJQkFBS0JnUUM5VGlKbU51Z0o4cFg2T2RYNUFwODBOWnNvaFQ3RzZJS0VWdTZaSFBSNkR4WnJ5czVvCkFkOUJsdElLUUF2b2loQldmYWNxNTFndjluLzB6dFZsMzNLNlR1L1lFV2ZwNE9WeWNKWTMrUVhxM2c1RjJxTkoKRmdXYW5KUjJ6Mmd2TnlXZGUwbmJZK3JPU1NjNk1aNnVTVnNNdHhydktlc3RDZUs2SUhyaXp5ZFNvd0lEQVFBQgpBb0dBWkZPOW5XaHFENk9XWXJnMk03TjFCcW1HWXJKRGRBMlQ1bWxnS0p1VTRmK1BCVy9GZG8vUGI2WnNDT3lxCm93SlE2RlhOdThwQ0RhRlpiVGdWRnRtV3BrZUFIRW5vSmFCb25HL0x5M2ZLVDR4d1o1MnBRYnF1SndZNTd5OVAKTldDOEdWU3Y2aCs5Rjd2ai83aDRqRHlMS0U4VGhYNG9QZnM2QkZRdXF6dG4vcEVDUVFEZ0tXdXNnTnpGS1ViTgo0aGk3M2tBSUFEM3dVZ25kRGdDUTc1bnZ2SFFPRUFtUzJjdzBEaVUxalhSTVgvc25uQWUvWHVrTi9WNm14OFVXCkhFb3UyelpKQWtFQTJERlJ5emxpSGFDa2lkZFdIWXRoWjlSQ3JDdVBCQ0xnVGtmMk9mcVRaYUVvK0lTMG5RQysKTlR2Nmo4dnRvMlhmeUNFc0xoOE9FSjFTblhTWisxWVJpd0pCQUx0RS8yWlRGWjFGZVppQTNnYjlpdUxrU05xZgp2d3ZGS2VYcnRkL1p3ZDhKdU9YTlBOTDBTbE91QkUzV0ZiMm1sYlpqOVRHeHpjUnB1cFpaTmdSbE1Ma0NRQ0l2CmNrcWJVVXQwQ25DTmIxMk9tNkZxYS95RGlzTFJyUHhUM3JoK1NlNXBGR3h2dDR1WUFYdXpkMFJqcjdrRnMrUVcKY3NEOFFpSVlibWJkZURmSS9VOENRUUNDc1N5Q1Fzd3ZFbE9WV0YzREM4N3prakFJdDJMU0t3ajRhM0pGVWNkSApEQ1VmaWxKaVZIM2d3UURKdVFJM0dPNDJCb1QyWThKK0gxSlg0TFIrM0FIcwotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo="
+              }
+            },
+            "public_ip": "18.203.252.240",
+            "role": "worker",
+            "node_type": "t2.medium",
+            "root_key_pair": {
+              "protocol": "ssh",
+              "keys": {
+                "public_key": "cHVibGljS2V5LTkwZWY4OGM5LTM4MzYtNGI3Yi1iZmIwLWE4OGM0MmQ5YjA5ZQ==",
+                "private_key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMHBob212bExheldBQ3l4aFphR2xqM0ZiYTh6S25udk1LRSswQ1F5WmN2Q2h6QzdNCkRPK01HUEdYTE5ZQkpUL0VmM1k5RE50U3pFcTJaOXR4ZzQwSEp1cGxiZU9scHNKaVRaRkhnUm41WTdTbWNXeEMKcGhNWHNpNW1hak5iUUFpaG9JV0piK1RjdXdWWjJ4RmJXZkp5MXo0ZnFiekRIVUpZOGdiOFYxOFpvajNEUzZ3TwpzLzMrWjdXZ2FRRWErSnJmd3ZrVzhKSDlxanhpM2ZOWGkrV3hyK0ltaVF1N1Voa3J4elAwVE9yTjh2Uis5OHVuCmd2UnRKd0ttTnpFVTdIcmNPMVJoQXZkcDdDaDY4alI2RU5YYWdOVGhaK0FJRXNhT3lza1hZcHVrbE5Sa3dUVkwKT3dhRVAwOUhucFhTdFY5TmUvaDg0ZnhMY0lxNFZseUFuTDVjT1FJREFRQUJBb0lCQVFDQXYxQmtQamhQYUx2SgpHTzdLZFZLRUtXY2N0bXpCQ3lvN0VzOGNJU25HelRuOVhEYS9TY3U2akNoQjd1dHdYRlhESHdRZjBnNENlMEtjCnA5bno5TW9FanBSSDVENm5mbnNldE15a0xyNzZwN3lCNXcrdi9FZ21WSnVrSFpXUnhqVVpyOG5nTUdpSnBiSFQKYmY4Tk5GM2xIVU82UDM2QmFzaDUzcTl5c3Q4M0FiTnhCdW5xZUc3bXF3a2hCVkN5SUkrYVUzRlJwZFBIdzEyZQo2V2FYNjdhcUpvWk0zT3pvcUVLOTdZZ2dzOTB3L0VNeWpkYTg4RTdnN3B5SXpZMEJCcjBSeTNPdUYzWUwrL1NuCjgrMkVlYzVMYXlMOSttVlRST0ZDSUx4WTVUWG0rVGFQYkRCS1VCOUFRZHZvOGQwU3BTcDN2bllpNm5Vazc0RDAKdjN0dzlEdkpBb0dCQU9zRUh2UEx4cGJxTEFXZ3dmTGxlemU1YjVUa1BtUjJXbW1wRUlIWUN0NHpDUmEwUXlrVgpjNU9nYWJHMWRqSUtSOHBFaDN4RzNsU0pWRVdmSm81WFFnekUyUndHZWpzaC8yRW5Dc2pyTWI0L3NkZ0luRHFaCnNqT29NK0d5YjJBOThEUVduQ1lQNVRESW9idHI4VWZRWVZDUFZiaElEV3V3OWRjeEVaQ0hUVDdyQW9HQkFPVm0KRnl6ZGl6WmZ2TXhaN0dvMWlzSVp2elVQbmI3UVNnL0kvL3lVa2U1enVwdFhyczkybmdoMjFlQTBpL2cwbjRyYgpYQ0pGajhQdlYzaXBESjlvbk1RMnhub01HUGc2TGpWT3BER3N2bnNySEJISlM2QzE1K1VRY3htSjRKa1AvS0JaCm5RdHFieTJQRkJ3eXdsc01CN3N2RGY4aCtVQUhVWGl0S3dwYXV6QnJBb0dBR1FxRVhjZTlya0RmVmU0dUhEcDEKYVplWm13ekMxU09ET0xUcDdGdmZ0Sk5OaVp6RmR6QXc4MjdwTkNVNHBkWlFsZTI5WGZHVEtRREUrUElmUXBWcgpsVDY0UDNNMVBPMi9iMU9nbzQzajYvaVBjNHhmVVNNbFNMbklaV2tFMHdWbWZiWlhCdnMwbVlFWE1vZ3EybE1LCnUzRzZXWHRiNnJpZFNVT1NNb3NvSU9jQ2dZQmlYbWZidGxqSEJVREpoRm9McFZBT01jbzdiNm5lTkNVK0pad1gKN0lHemRlNzBSQ0pURm5Obi84Vnc4amQvUk5tUlNzVjBjTTNZWUY3cS85ckkxS3c4dTV4YW82dGxibFY0U0hQQwpWV2dOR3d4YldDMVZDZ3dadnZjTVlZSnRRRnk5U2hBODMvUXkzaUxxZ0oyMU96QnBoU0VFWWNZblBid2krbWIxCmRyakVad0tCZ1FDL01GVjRUZmV5aU9UVk40T1grK0FBK2hTSkRKOHJNRXVCaTdXR21uUFpYSi9CYlZhR0N4VWQKOEp4RUVjeEZmSXcxRUduL2VpUStoMVc4elB4UHkrdm9yVWVOS0JLZis4UkhBcU4xejh6YldHR2JvNVlYaE82OApvbk9FYUdSTDdYT0pWcXV4YWYwN1VjZHZ0UTBMV1A5TWsra21ITGk5VTh3VWdWKzlwUDhCTkE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQ=="
+              }
+            },
+            "host_name": "vm1"
+          }
+        },
+        "kubernetes": {
+          "requirements": [
+            {
+              "host": {
+                "capability": "tosca.capabilities.QC.VM.topology",
+                "node": "topology",
+                "relationship": "tosca.relationships.HostedOn"
+              }
+            }
+          ],
+          "interfaces": {
+            "Standard": {
+              "configure": {
+                "inputs": {
+                  "repository": "https://github.com/QCDIS/playbooks.git",
+                  "resources": [
+                    "k8s/set_master_k8s_cluster.yaml",
+                    "k8s/join_k8s_cluster.yaml",
+                    "k8s/create_k8s_dashboard.yaml"
+                  ]
+                }
+              },
+              "create": {
+                "inputs": {
+                  "repository": "https://github.com/QCDIS/playbooks.git",
+                  "resources": [
+                    "ec2/ec2_mount.yaml",
+                    "docker/install_docker.yaml",
+                    "k8s/install_k8s_prerequisites.yaml",
+                    "k8s/install_k8s.yaml"
+                  ]
+                }
+              },
+              "delete": {
+                "inputs": {
+                  "repository": "https://github.com/QCDIS/playbooks.git",
+                  "resources": [
+                    "k8s/k8s_delete.yaml"
+                  ]
+                }
+              }
+            }
+          },
+          "type": "tosca.nodes.QC.docker.Orchestrator.Kubernetes"
+        },
+        "topology": {
+          "properties": {
+            "domain": "Ireland",
+            "provider": "EC2"
+          },
+          "requirements": [
+            {
+              "vm": {
+                "capability": "tosca.capabilities.QC.VM",
+                "node": "compute",
+                "relationship": "tosca.relationships.DependsOn"
+              }
+            },
+            {
+              "vm": {
+                "capability": "tosca.capabilities.QC.VM",
+                "node": "compute_1",
+                "relationship": "tosca.relationships.DependsOn"
+              }
+            }
+          ],
+          "interfaces": {
+            "CloudsStorm": {
+              "delete": {
+                "inputs": {
+                  "code_type": "SEQ",
+                  "object_type": "SubTopology"
+                }
+              },
+              "hscale": {
+                "inputs": {
+                  "code_type": "SEQ",
+                  "object_type": "SubTopology"
+                }
+              },
+              "provision": {
+                "inputs": {
+                  "code_type": "SEQ",
+                  "object_type": "SubTopology"
+                }
+              },
+              "start": {
+                "inputs": {
+                  "code_type": "SEQ",
+                  "object_type": "SubTopology"
+                }
+              },
+              "stop": {
+                "inputs": {
+                  "code_type": "SEQ",
+                  "object_type": "SubTopology"
+                }
+              }
+            },
+            "Openstack": {}
+          },
+          "type": "tosca.nodes.QC.VM.topology",
+          "attributes": {
+            "credentials": [
+              {
+                "cloud_provider_name": "EC2",
+                "keys": {
+                  "aws_access_key_id": "BGCAc9htRRjcZx5uZ6aWnRo67tNAgk7M26DwuN3cZvypnCt6V56U9RbEuRpmXbER"
+                },
+                "token": "BGCAc9htRRjcZx5uZ6aWnRo67tNAgk7M26DwuN3cZvypnCt6V56U9RbEuRpmXbER",
+                "token_type": "access_key"
+              }
+            ],
+            "current_state": "RUNNING",
+            "desired_state": "DELETED"
+          },
+          "artifacts": {
+            "provisioned_files": {
+              "encoding": "base64",
+              "file_contents": "bW9yZV9zZWNyZXQK",
+              "file_ext": "zip",
+              "type": "tosca.datatypes.QC.encodedFile"
+            }
+          }
+        }
+      }
+    },
+    "description": "TOSCA example",
+    "imports": [
+      {
+        "nodes": "https://raw.githubusercontent.com/qcdis-sdia/sdia-tosca/master/types/nodes.yaml"
+      },
+      {
+        "data": "https://raw.githubusercontent.com/qcdis-sdia/sdia-tosca/master/types/data.yml"
+      },
+      {
+        "capabilities": "https://raw.githubusercontent.com/qcdis-sdia/sdia-tosca/master/types/capabilities.yaml"
+      },
+      {
+        "policies": "https://raw.githubusercontent.com/qcdis-sdia/sdia-tosca/master/types/policies.yaml"
+      },
+      {
+        "interfaces": "https://raw.githubusercontent.com/qcdis-sdia/sdia-tosca/master/types/interfaces.yml"
+      }
+    ]
+  }
+}
