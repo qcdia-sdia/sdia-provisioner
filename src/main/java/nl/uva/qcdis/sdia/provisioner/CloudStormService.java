@@ -21,6 +21,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -380,7 +381,7 @@ class CloudStormService {
         FileUtils.copyDirectory(srcDir, destDir);
     }
 
-    protected ToscaTemplate runCloudStorm(String tempInputDirPath, boolean dryRun) throws IOException, ApiException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    protected ToscaTemplate runCloudStorm(String tempInputDirPath, boolean dryRun) throws IOException, ApiException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
         String[] args = new String[]{"run", tempInputDirPath};
         File topTopologyFile = new File(tempInputDirPath + TOPOLOGY_RELATIVE_PATH
                 + TOP_TOPOLOGY_FILE_NAME);
@@ -401,7 +402,6 @@ class CloudStormService {
         List<NodeTemplateMap> vmTopologiesMaps = getHelper().getVMTopologyTemplates();
         int i = 0;
         for (CloudsStormSubTopology subTopology : subTopologies) {
-
             setSSHKeysToVMAttributes(i, vmTopologiesMaps, subTopology, tempInputDirPath);
 
         }
@@ -427,7 +427,7 @@ class CloudStormService {
         return keyPair;
     }
 
-    protected NodeTemplateMap addCloudStromArtifacts(NodeTemplateMap vmTopologyMap, String tempInputDirPath) throws IOException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    protected NodeTemplateMap addCloudStromArtifacts(NodeTemplateMap vmTopologyMap, String tempInputDirPath) throws IOException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
         Map<String, Object> artifacts = vmTopologyMap.getNodeTemplate().getArtifacts();
         if (artifacts == null) {
             artifacts = new HashMap<>();
@@ -451,7 +451,7 @@ class CloudStormService {
         return vmTopologyMap;
     }
 
-    private void setSSHKeysToVMAttributes(int i, List<NodeTemplateMap> vmTopologiesMaps, CloudsStormSubTopology subTopology, String tempInputDirPath) throws IOException, ApiException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    private void setSSHKeysToVMAttributes(int i, List<NodeTemplateMap> vmTopologiesMaps, CloudsStormSubTopology subTopology, String tempInputDirPath) throws IOException, ApiException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
         NodeTemplateMap vmTopologyMap = vmTopologiesMaps.get(i);
 
         vmTopologyMap = addCloudStromArtifacts(vmTopologyMap, tempInputDirPath);
