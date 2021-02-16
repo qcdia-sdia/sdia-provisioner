@@ -144,9 +144,9 @@
               {
                 "cloud_provider_name": "EC2",
                 "keys": {
-                  "aws_access_key_id": "BGCAc9htRRjcZx5uZ6aWnRo67tNAgk7M26DwuN3cZvypnCt6V56U9RbEuRpmXbER"
+                  "aws_access_key_id": "gAAAAABgK8W5tMC9iVFJU755sheI_L1wdUe8ylDK9lkxa8c8hJJ08Ay6SpunyIdWp6GVtvXHzs8dSt8AKRQcuhiMHxT52Kj1wZ4j1Jd4OT7OzC8FaMy8vgR1du81_-mu7YmUZh965t7T"
                 },
-                "token": "BGCAc9htRRjcZx5uZ6aWnRo67tNAgk7M26DwuN3cZvypnCt6V56U9RbEuRpmXbER",
+                "token": "gAAAAABgK8W5tMC9iVFJU755sheI_L1wdUe8ylDK9lkxa8c8hJJ08Ay6SpunyIdWp6GVtvXHzs8dSt8AKRQcuhiMHxT52Kj1wZ4j1Jd4OT7OzC8FaMy8vgR1du81_-mu7YmUZh965t7T",
                 "token_type": "access_key"
               }
             ],
