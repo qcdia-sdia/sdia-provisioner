@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.KeyPair;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -136,12 +137,22 @@ public class CloudStormServiceTest {
      * @throws java.lang.Exception
      */
     @Test
-    public void testExecute() throws Exception {
+    public void testExecute() {
         if (ToscaHelper.isServiceUp(sureToscaBasePath)) {
-            System.out.println("execute");
-            CloudStormService instance = getService(messageExampleProvisioneRequestFilePath);
-            boolean dryRun = true;
-            instance.execute(dryRun);
+            try {
+                System.out.println("execute");
+                CloudStormService instance = getService(messageExampleProvisioneRequestFilePath);
+                boolean dryRun = true;
+
+                instance.execute(dryRun);
+
+            } catch (IOException ex) {
+                Logger.getLogger(CloudStormServiceTest.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ApiException | JSchException ex) {
+                Logger.getLogger(CloudStormServiceTest.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(CloudStormServiceTest.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -201,13 +212,13 @@ public class CloudStormServiceTest {
         if (ToscaHelper.isServiceUp(sureToscaBasePath)) {
             System.out.println("writeCloudStormInfrasCodeFiles");
 
-            testWriteCloudStormInfrasFiles(messageExampleProvisioneRequestFilePath, 
+            testWriteCloudStormInfrasFiles(messageExampleProvisioneRequestFilePath,
                     CloudsStormSubTopology.StatusEnum.FRESH, OpCode.OperationEnum.PROVISION);
-            testWriteCloudStormInfrasFiles(messageExampleDeleteRequestFilePath, 
+            testWriteCloudStormInfrasFiles(messageExampleDeleteRequestFilePath,
                     CloudsStormSubTopology.StatusEnum.RUNNING, OpCode.OperationEnum.DELETE);
         }
 
-    }  
+    }
 
     /**
      * Test of getKeyPair method, of class CloudStormService.
@@ -229,7 +240,7 @@ public class CloudStormServiceTest {
 
     }
 
-    private void testWriteCloudStormInfrasFiles(String path, 
+    private void testWriteCloudStormInfrasFiles(String path,
             CloudsStormSubTopology.StatusEnum status, OpCode.OperationEnum opCode) throws IOException, JsonProcessingException, ApiException, Exception {
         CloudStormService instance = getService(path);
         initPaths();
@@ -245,8 +256,8 @@ public class CloudStormServiceTest {
             assertEquals(status, cloudsStormSubTopology.getStatus());
         }
 
-        List<CloudsStormSubTopology> cloudStormSubtopologies = 
-                (List<CloudsStormSubTopology>) subTopologiesAndVMs.get("cloud_storm_subtopologies");
+        List<CloudsStormSubTopology> cloudStormSubtopologies
+                = (List<CloudsStormSubTopology>) subTopologiesAndVMs.get("cloud_storm_subtopologies");
         instance.writeCloudStormInfrasCodeFiles(infrasCodeTempInputDirPath, cloudStormSubtopologies);
         File infrasCodeFile = new File(infrasCodeTempInputDirPath + File.separator + INFRASTUCTURE_CODE_FILE_NAME);
         assertTrue(infrasCodeFile.exists());
