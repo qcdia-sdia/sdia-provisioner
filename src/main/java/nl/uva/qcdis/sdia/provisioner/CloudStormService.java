@@ -69,8 +69,7 @@ import topology.analysis.TopologyAnalysisMain;
  */
 class CloudStormService {
 
-    protected String secret;
-    private String credentialSecret;
+    protected String credentialSecret;
 
     /**
      * @return the helper
@@ -115,10 +114,6 @@ class CloudStormService {
         if (sureToscaBasePath == null) {
             throw new NullPointerException("sureToscaBasePath cannot be null");
         }
-        secret = properties.getProperty("cloud.storm.secret");
-        if (secret == null) {
-            throw new NullPointerException("secret cannot be null");
-        }
         credentialSecret = properties.getProperty("credential.secret");
         if (credentialSecret == null) {
             throw new NullPointerException("secret cannot be null");
@@ -145,7 +140,7 @@ class CloudStormService {
                 String encryptedFileContents = (String) provisionedFiles.get("file_contents");
                 if (encryptedFileContents != null) {
                     File zipFile = new File(tempInputDir.getParent() + File.separator + Long.toString(System.nanoTime()) + "-" + CLOUD_STORM_FILES_ZIP_SUFIX);
-                    String fileContentsBase64 = Converter.decryptString(encryptedFileContents, secret);
+                    String fileContentsBase64 = Converter.decryptString(encryptedFileContents, credentialSecret);
                     Converter.decodeBase64BToFile(fileContentsBase64, zipFile.getAbsolutePath());
                     Converter.unzipFolder(zipFile.getAbsolutePath(), tempInputDir.getAbsolutePath());
 
@@ -441,7 +436,7 @@ class CloudStormService {
         Logger.getLogger(CloudStormService.class.getName()).log(Level.FINE, "Created zip at: {0}", zipPath);
 
         String cloudStormZipFileContentsAsBase64 = Converter.encodeFileToBase64Binary(zipPath);
-        String encryptedCloudStormZipFileContents = Converter.encryptString(cloudStormZipFileContentsAsBase64, secret);
+        String encryptedCloudStormZipFileContents = Converter.encryptString(cloudStormZipFileContentsAsBase64, credentialSecret);
         provisionedFiles.put("file_contents", encryptedCloudStormZipFileContents);
         provisionedFiles.put("encoding", "base64");
         provisionedFiles.put("file_ext", "zip");
