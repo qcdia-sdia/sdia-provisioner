@@ -248,7 +248,7 @@ class CloudStormService {
         Double requestedMemSize = getHelper().getVMNMemSize(vmMap);
         String requestedOsDist = getHelper().getVMNOSDistro(vmMap);
         String requestedOsVersion = getHelper().getVMNOSVersion(vmMap);
-        String requestedOs = requestedOsDist+" "+requestedOsVersion;
+        String requestedOs = requestedOsDist + " " + requestedOsVersion;
         Double requestedDiskSize = getHelper().getVMNDiskSize(vmMap);
         double[] requestedVector = convert2ArrayofDoubles(requestedNumOfCores, requestedMemSize, requestedDiskSize);
         double min = Double.MAX_VALUE;
@@ -299,7 +299,7 @@ class CloudStormService {
         int i = 0;
         for (NodeTemplateMap vmTopologyMap : vmTopologiesMaps) {
             List<Credential> toscaCredentials = getHelper().getCredentialsFromVMTopology(vmTopologyMap);
-            
+
             for (Credential toscaCredential : toscaCredentials) {
                 toscaCredential = Converter.dencryptCredential(toscaCredential, credentialSecret);
                 CloudCred cloudStormCredential = new CloudCred();
@@ -494,10 +494,12 @@ class CloudStormService {
             }
             vmAttributes.put("private_ip", vm.getSelfEthAddresses());
             vmAttributes.put("public_ip", vm.getPublicAddress());
-            if (j > 0) {
-                vmAttributes.put("role", "worker");
-            } else {
-                vmAttributes.put("role", "master");
+            if (!vmAttributes.containsKey("role")) {
+                if (j > 0) {
+                    vmAttributes.put("role", "worker");
+                } else {
+                    vmAttributes.put("role", "master");
+                }
             }
             vmAttributes.put("node_type", vm.getNodeType());
             vmAttributes.put("host_name", vm.getName());
